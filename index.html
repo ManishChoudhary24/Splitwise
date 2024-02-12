@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>Splitwise</title>
+        <link rel="icon" href="/images/logo.png">
+        <link rel="stylesheet" href="style.css">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+    </head>
+    <body>
+        <div>
+            <!-- <button onclick="save()" class="save-btn" >Save</button> -->
+        </div>
+        <div id="navbar">
+            <div id="logo-heading">
+                <img src="/images/logo.png" alt="#" id="logo">
+                <h1 id="header">Splitwise</h1>
+            </div>
+           
+            <div id="log">
+                <button id="signInButton">SignIn / Register</button>
+                <button id="signOutButton">SignOut</button>
+                <div id="message">
+                    <p>Hello User!!</p>
+                </div>
+                
+            </div>
+        </div>
+
+        <form id="splitGroup">
+            
+                <h3 class="num">Group Name: </h3>
+                <input type="text" id="mainHeading" class="input" name="group-name">
+                <fieldset id="select-friend">
+                    <legend><h3 class="num">Select Friends: </h3></legend>
+
+                </fieldset>
+                <button class="createBtn" type="submit" >Create Group</button>
+                
+        </form>
+        <div id="expense-to-pay">
+           
+        </div>
+
+        <div id="main-content">
+            
+    
+            <div id="newGroup">
+
+                <div id="group-card">
+                    <h1 id="group-heading"></h1>
+                    <ul id="group-value">
+                    </ul>
+                </div>
+                
+
+                <!-- <div class="sub-div">
+                    <h3 class="num">Number of friends: </h3>
+                    <input type="text" class="input-box" id="total">
+                </div> -->
+                <form id="add-expenses">
+                    <h2 class="add-expense-heading">Add Expense:</h2>
+                    <h3 class="num">Amount: </h3>
+                    <input type="text" class="input-box" id="amount" name="amount">
+            
+                    <h3 class="num">Who Paid: </h3>
+                    <select name="payers" id="add-payer">
+
+                    </select>
+                    <!-- <input type="text" class="input" id="add-payer"> -->
+                
+                    <button id="add-expense" class="btn" type="submit">Add</button>
+                </form>
+                
+
+                <h2 id="total-expenses">Expenses: </h2>
+                <div id="expense-details">
+                    
+                </div>
+
+                <button id="save" class="save-btn">Save</button>
+                
+            </div>
+            
+
+        </div>
+
+        
+        <footer id="footer">
+            <p>Copyright &copy; 2024 Splitwise</p>
+        </footer>
+        
+        
+        <script type="module" src="./demo.js" deffer></script>
+
+    </body>
+</html>
