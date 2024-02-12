@@ -357,6 +357,10 @@ color: rgb(34, 40, 49);
 
 
 @media screen and (max-width: 500px) {
+    #signInButton{
+        left: 20%;
+        width: 50%;
+    }
     #splitGroup{
         width: 80%;
         margin-top: 90px;
