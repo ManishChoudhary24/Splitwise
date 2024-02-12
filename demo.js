@@ -232,6 +232,7 @@ var groups=[];
 addExpenses.addEventListener("submit",function(e){
     e.preventDefault();
     expenseDetails.innerHTML="";
+    
     const data = new FormData(e.target);
     let dataValue = [...data.entries()] ;
     let len=dataArr.length-1;
@@ -301,7 +302,7 @@ addExpenses.addEventListener("submit",function(e){
         }
         console.log(takeMoney);
     }
-   
+    document.getElementById("amount").value="";
 })
 
 function uuidv4() {
