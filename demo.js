@@ -331,6 +331,6 @@ saveBtn.onclick=function(){
     //         ]
     //     })
     // }
-    window.location.href = "/";
+    window.location.href = "/Splitwise";
 }
 
