@@ -74,9 +74,9 @@ const userSignOut = async() => {
 onAuthStateChanged(auth,(user)=>{
     if(user){
         // alert("You are signed in!");
-        signInButton.style.display="block";
+        signInButton.style.display="none";
         signOutButton.style.display="block";
-        message.style.display="block";
+        // message.style.display="flex";
         message.innerHTML="Hello "+user.displayName;
         mainContent.style.display="none";
         logoHeader.style.display="flex";
@@ -314,23 +314,31 @@ function uuidv4() {
 const saveBtn=document.getElementById("save");
 saveBtn.onclick=function(){
     console.log(groups);
-    // set(ref(database,'groups/'),{
-        
-        
-    // })
     if(groups.length!=0){
         set(ref(database,'groups/'+uuidv4()),{
             name: `${dataArr[0][1]}`,
             payouts: groups
         })
     }
-    // for(var obj=0;obj< groups.length;obj++){
-    //     set(ref(database,'groups/'+'group1'),{
-    //         payouts: [
-    //             groups[obj]
-    //         ]
-    //     })
-    // }
     window.location.href = "/Splitwise";
 }
+
+function forMobileMedia(x) {
+    if (x.matches) { // If media query matches
+        message.style.display="none";
+
+        signOutButton.innerHTML=`<img src="https://toppng.com/uploads/preview/logout-11551049168o9cg0mxxib.png" alt="#" width="40px" height="40px">`
+        signOutButton.style.height="fit-content";
+        signInButton.innerHTML='<img src="https://firebasestorage.googleapis.com/v0/b/task-traker-4f454.appspot.com/o/loginwithgoogle1.png?alt=media&token=c54c3f66-e902-4a41-b02f-aec3ffe452bf" alt="#" width="100%">'
+        signInButton.style.height="fit-content";
+        // signOutButton.style.width="fit-content";
+    } else {
+        message.style.display="flex";
+    }
+  }
+var x = window.matchMedia("(max-width: 500px)");
+forMobileMedia(x);
+x.addEventListener("change", function() {
+    forMobileMedia(x);
+});
 

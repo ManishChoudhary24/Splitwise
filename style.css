@@ -5,7 +5,8 @@
 
 body{
     background-color: rgb(238, 238, 238);
-    color: rgb(115, 102, 226);
+    color: rgb(67, 55, 176);
+    font-family: sans-serif;
 }
 /* #main-content{
     display: none;
@@ -52,6 +53,7 @@ body{
 }
 
 #log{
+    display: flex;
     position: relative;
     /* align-items: right; */
     /* width: 20%; */
@@ -106,11 +108,13 @@ body{
     display: inline-block;
     outline: none;
     cursor: pointer;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 1.2rem;
+    line-height: 5px;
     font-weight: 300;
     border-radius: 8px;
-    padding: 5px;
+    padding: 2px;
+    margin-right: 10px;
+    height: 40px;
     border: 1px solid #222222;
     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
     background: #fff;
@@ -123,15 +127,18 @@ body{
     background: #f7f7f7;
 }
 #message{
+    display: flex;
     font-size: 1.2em;
     color: rgb(34, 40, 49);
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    align-items: center;
     /* position: absolute; */
     /* right: 150px;
     top: 100px; */
     float: right;
     margin-right: 20px;
-    display: inline;
+    
 
 }
 
@@ -142,6 +149,10 @@ body{
     background-color: #C0EEE4;
     border: solid 3px rgb(34, 40, 49);
     padding: 10px;
+}
+#select-friend{
+    padding: 10px;
+    margin: 5px auto;
 }
 
 #userId{
@@ -235,7 +246,7 @@ color: rgb(34, 40, 49);
 }
 #add-expenses{
     border: 3px solid rgb(101, 83, 112);
-    padding: 20px;
+    padding: 10px;
     margin: 10px;
 }
 #add-payer{
@@ -438,3 +449,44 @@ color: rgb(34, 40, 49);
     font-size: 1.5rem;
     padding: 10px;
 }
+
+
+@media screen and (max-width: 500px) {
+    #splitGroup{
+        width: 80%;
+        margin-top: 100px;
+    }
+    #expense-to-pay{
+        width: 90%;
+    }
+    #newGroup{
+        width: 80%;
+        margin-top: 100px;
+    }
+    /* .num{
+        display: inline;
+    } */
+    #amount{
+        width: 55%;
+        /* display: block; */
+    }
+    #add-payer{
+        width: 60%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    #navbar{ 
+        height: 60px;
+    }
+    
+    #logo{
+        margin-left: 5px;
+    }
+    #footer{
+        font-size: 20px;
+    }
+}
+
+
+
+
