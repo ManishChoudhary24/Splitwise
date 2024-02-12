@@ -1,6 +1,3 @@
-// function save(){
-//     alert("hello");
-// }
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
 // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
@@ -29,7 +26,6 @@ const analytics = getAnalytics(app);
 const auth= getAuth();
 const provider = new GoogleAuthProvider();
 const database = getDatabase(app);
-var deleteBtnToggle = false
 
 
 const signInButton=document.getElementById("signInButton");
@@ -41,7 +37,23 @@ var expensesToPay=document.getElementById("expense-to-pay");
 const footer=document.getElementById("footer");
 
 
-// const app = firebase.initializeApp(firebaseConfig);
+function forMobileMedia(x) {
+    if (x.matches) { // If media query matches
+        message.style.display="none";
+        signOutButton.innerHTML=`<img src="https://toppng.com/uploads/preview/logout-11551049168o9cg0mxxib.png" alt="#" width="40px" height="40px">`
+        signOutButton.style.height="fit-content";
+        signInButton.innerHTML='<img src="https://firebasestorage.googleapis.com/v0/b/task-traker-4f454.appspot.com/o/loginwithgoogle1.png?alt=media&token=c54c3f66-e902-4a41-b02f-aec3ffe452bf" alt="#" width="100%">'
+        signInButton.style.height="fit-content";
+    } else {
+        message.style.display="flex";
+        signInButton.innerHTML='<img src="https://firebasestorage.googleapis.com/v0/b/task-traker-4f454.appspot.com/o/loginwithgoogle1.png?alt=media&token=c54c3f66-e902-4a41-b02f-aec3ffe452bf" alt="#" width="100%" height="80px">'
+    }
+  }
+var x = window.matchMedia("(max-width: 500px)");
+forMobileMedia(x);
+x.addEventListener("change", function() {
+    forMobileMedia(x);
+});
 
 const userSignIn = async() => {
     signInWithPopup(auth,provider)
@@ -70,22 +82,22 @@ const userSignOut = async() => {
 
     })
 }
-// console.log("hello");
 onAuthStateChanged(auth,(user)=>{
     if(user){
         // alert("You are signed in!");
         signInButton.style.display="none";
         signOutButton.style.display="block";
-        // message.style.display="flex";
         message.innerHTML="Hello "+user.displayName;
         mainContent.style.display="none";
         logoHeader.style.display="flex";
         splitGroup.style.display="block";
         expensesToPay.style.display="block";
         footer.style.display="block";
+        forMobileMedia(x);
     }
     else{
-        signInButton.style.display="block";
+        document.body.style.backgroundColor="#C0EEE4";
+        signInButton.style.display="flex";
         signOutButton.style.display="none";
         message.style.display="none";
         mainContent.style.display="none";
@@ -103,13 +115,14 @@ var items=document.getElementById("items");
 var getData;
 
 
-get(ref(database,'user'))
-.then(sp=>{
+onValue(ref(database,'user'),(sp)=>{
     var obj = sp.val()
     var keys = Object.keys(obj)
 
     var selectFreind = document.getElementById("select-friend")
-
+    while (selectFreind.childNodes.length>2) {
+        selectFreind.lastChild.remove()
+    }
     keys.forEach(key=>{
         var checkDiv = document.createElement("div");
         checkDiv.innerHTML = `
@@ -124,9 +137,6 @@ get(ref(database,'user'))
         return obj[key].name
     }))
 })
-.catch(err=>{
-    console.log(err)
-})
 
 function handleDeleteBtn(id){
     console.log(id);
@@ -140,27 +150,20 @@ onValue(ref(database,'groups'),
         }
         var obj =snapshot.val();
         if(!obj) return
-        // console.log(obj);
         var keys= Object.keys(obj);
-        console.log(keys);
         
         keys.forEach((key)=>{
-            // console.log(obj[key]['name'])
-            console.log(obj[key].payouts)
             var newExpense=document.createElement("div");
             newExpense.className="expenses-to-pay";
-            // expensesToPay.innerHTML+='<div class="expenses-to-pay">'
             newExpense.innerHTML+=`<h2 id="expenses-to-pay-heading">${obj[key].name}</h2>`
-                // <button class="delete-btn" name="deletebtn" id="${key}" type="button">Delete</button>`;
-                // console.log()
+                
             obj[key].payouts.forEach((pays)=>{
-                // console.log(pays.paidTo)
                 newExpense.innerHTML+=`<p>${pays.paidTo} will pay ${pays.amountPaid} to ${pays.paidBy}</p>`
             })
+
             newExpense.innerHTML+=`<button class="delete-btn" name="deletebtn" id="${key}" type="button">Delete</button>`;
 
             expensesToPay.appendChild(newExpense);
-            // expensesToPay.innerHTML+='</div>'
         })
         
         let a  = document.getElementsByClassName('delete-btn')
@@ -172,22 +175,6 @@ onValue(ref(database,'groups'),
         }
     }
 )
-
-
-  
-// const deleteBtn = document.getElementsByClassName("delete-btn");
-// deleteBtn.onclick=function(){
-//     const id=deleteBtn.id;
-//     console.log(id);
-//     let deleteRef=ref(database,'groups/'+id)
-//     console.log(deleteRef);
-//     // remove(deleteRef);
-
-// }
-// deleteBtn.addEventListener("click", function() {
-// const clickedButtonId = this.id;  // `this` refers to the clicked button
-// console.log(clickedButtonId);
-// });
 
 const splitGroup=document.getElementById("splitGroup");
 const groupCard = document.getElementById("group-card");
@@ -211,7 +198,6 @@ splitGroup.addEventListener("submit",function(e){
             groupHeading.innerHTML=dataArr[i][1];
         }
         else{
-            // amountToPay.push(0);
             groupValue.innerHTML+=`<li style="list-style:none">${dataArr[i][0]}</li>`;
             addPayer.innerHTML+=`<option name="payer" id="payer">${dataArr[i][0]}</option>`;
             amountToPay.push(0);
@@ -255,9 +241,6 @@ addExpenses.addEventListener("submit",function(e){
     var takeMoney=new Map();
 
     for(var key of map.keys()){
-        // console.log(map.get(key));
-        // totalAmount+=parseInt(map.get(key));
-
         let moneyPaid=parseInt(map.get(key));
         if(moneyPaid>=perPersonPay){
             takeMoney.set(key,moneyPaid-perPersonPay);
@@ -324,22 +307,4 @@ saveBtn.onclick=function(){
     window.location.href = "/Splitwise";
 }
 
-function forMobileMedia(x) {
-    if (x.matches) { // If media query matches
-        message.style.display="none";
-
-        signOutButton.innerHTML=`<img src="https://toppng.com/uploads/preview/logout-11551049168o9cg0mxxib.png" alt="#" width="40px" height="40px">`
-        signOutButton.style.height="fit-content";
-        signInButton.innerHTML='<img src="https://firebasestorage.googleapis.com/v0/b/task-traker-4f454.appspot.com/o/loginwithgoogle1.png?alt=media&token=c54c3f66-e902-4a41-b02f-aec3ffe452bf" alt="#" width="100%">'
-        signInButton.style.height="fit-content";
-        // signOutButton.style.width="fit-content";
-    } else {
-        message.style.display="flex";
-    }
-  }
-var x = window.matchMedia("(max-width: 500px)");
-forMobileMedia(x);
-x.addEventListener("change", function() {
-    forMobileMedia(x);
-});
 

@@ -2,38 +2,26 @@
     padding: 0;
     margin: 0;
 }
-
-
 body{
     background-color: rgb(238, 238, 238);
     color: rgb(67, 55, 176);
     font-family: sans-serif;
 }
-/* #main-content{
-    display: none;
-} */
-
 #navbar{
     display: flex;
     position: fixed;
     top: 0;
-    /* margin-top: -20px; */
     justify-content: space-between;
     width: 100%;
     height: 50px;
     padding: 10px 0px;
-    /* position: relative; */
     background-color: rgb(0, 173, 181);
 }
-
-
 #logo-heading{
     display: flex;
     width: 50%;
     height: auto;
-    margin: 0;
-    
-    
+    margin: 0; 
 }
 #logo{
     border: solid 2px white;
@@ -44,40 +32,21 @@ body{
     padding-right: 0;
 }
 #header{
-    /* background-color: rgb(196, 247, 233); */
-    /* text-align: center; */
     color: rgb(57, 62, 70);
     font-size: 40px;
-    /* width: 100%; */
     display: inline;
     margin-left: 10px; 
 }
-
 #log{
     display: flex;
     position: relative;
-    /* align-items: right; */
-    /* width: 20%; */
-    /* float: right;
-    float: top; */
-    /* width: 18%; */
-    /* display: inline-block; */
 }
-
 #signInButton{
-    /* background-color: rgb(233, 82, 122);
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1em;
-    color: floralwhite;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    margin-right: 10px;
-    padding: 5px;
-    border: none;
-    float: left; */
-
-    display: inline;
-    float: left;
+    display: flex;
+    position: fixed;
+    top: 40%;
+    left: 35%;
+    height: fit-content;
     outline: none;
     cursor: pointer;
     font-size: 16px;
@@ -90,22 +59,12 @@ body{
     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
     background: #fff;
     color: #222222;
-    
-
 }
 #signInButton:hover {
     border-color: #000000;
     background: #f7f7f7;
 }
 #signOutButton{
-    /* background-color: rgb(237, 18, 18);
-    color: cornsilk;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1em;
-    padding: 5px;
-    border-radius: 10px;
-    border: none; */
-
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -119,9 +78,7 @@ body{
     border: 1px solid #222222;
     transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
     background: #fff;
-    color: #222222;
-    
-
+    color: #222222;  
 }
 #signOutButton:hover {
     border-color: #000000;
@@ -134,15 +91,9 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     align-items: center;
-    /* position: absolute; */
-    /* right: 150px;
-    top: 100px; */
     float: right;
     margin-right: 20px;
-    
-
 }
-
 #splitGroup{
     width: 40%;
     margin: 80px auto;
@@ -155,15 +106,12 @@ body{
     padding: 10px;
     margin: 5px auto;
 }
-
 #userId{
     display: inline;
     width: 20%;
     height: 100px;
 }
 .createBtn{
-    /* display: flex; */
-    /* left: 40%; */
     display: block;
     outline: none;
     cursor: pointer;
@@ -176,14 +124,11 @@ body{
     line-height: 30px;
     font-weight: 400;
     text-align: center;
-    /* margin-top: 20px;
-    margin-bottom: 20px ; */
     margin: 20px auto;
 }
 .createBtn:hover {
     background-color: #f4f6f9; 
 }
-
 .newBtn{
     border: 3px solid rgb(128, 169, 128);
     color: rgb(99, 101, 167);
@@ -192,9 +137,7 @@ body{
     margin-top: 10px;
     margin-left: 10px;
     padding: 5px 10px;
-    
 }
-
 #group-heading{
     font-size: 1.2em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -206,7 +149,6 @@ body{
 #group-value{
 color: rgb(34, 40, 49);
 }
-
 #group-card{
     border: solid 3px rgb(101, 83, 112);
     padding: 10px;
@@ -253,29 +195,16 @@ color: rgb(34, 40, 49);
 #add-payer{
     padding: 5px;
 }
-
-/* .sub-div{
-    margin-bottom: 15px;
-} */
 .num{
-    /* background-color: blueviolet; */
     display: inline;
     color:rgb(57, 62, 70);
 }
 .input-box{
     background-color: #fff;
-    /* border-style: no; */
     padding: 4px;
     width: 50px;
 }
-
 .input{
-    /* border-style: none; */
-    /* background-color: rgb(247, 245, 186);
-    padding: 5px;
-    margin-bottom: 10px; */
-
-
     padding: 6px 12px;
     font-size: 16px;
     font-weight: 400;
@@ -286,9 +215,7 @@ color: rgb(34, 40, 49);
     border: 1px solid #ced4da;
     appearance: none;
     border-radius: 4px;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    
-    
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; 
 }
 .input:focus{
     color: #212529;
@@ -297,16 +224,7 @@ color: rgb(34, 40, 49);
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
-
-
 .btn{
-    /* padding: 5px 10px; */
-    /* font-style: italic; */
-    /* font-size: 1em;
-    background-color: rgb(204, 220, 248);
-    border: 2px solid black;
-    border-radius: 20px; */
-
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -319,8 +237,6 @@ color: rgb(34, 40, 49);
     line-height: 30px;
     font-weight: 400;
     text-align: center;
-     
-
 }
 .btn:hover {
     background-color: #f4f6f9; 
@@ -335,9 +251,6 @@ color: rgb(34, 40, 49);
     height: max-content;
     width: 40%;
     margin: 80px auto;
-    
-    /* margin-left: 15%; */
-    
 }
 #total-expenses{
     padding-left: 20px;
@@ -346,7 +259,6 @@ color: rgb(34, 40, 49);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #expense-details{
-    
     background-color: rgb(238, 238, 238);
     color: rgb(34, 40, 49);
     width: max-content;
@@ -356,7 +268,6 @@ color: rgb(34, 40, 49);
     padding: 10px 15px;
     overflow: auto;
     border: 3px solid rgb(101, 83, 112);
-    /* display: block; */
 }
 
 #expense-to-pay{
@@ -366,7 +277,6 @@ color: rgb(34, 40, 49);
     background-color: #C0EEE4;
     border: solid 3px rgb(34, 40, 49);
     padding: 5px;
-    /* margin: 10px auto; */
 }
 #expenses-to-pay-heading{
     display:block;
@@ -374,7 +284,6 @@ color: rgb(34, 40, 49);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     color: rgb(57, 62, 70);
-    /* padding: 2px; */
     margin: 5px auto;
 }
 .delete-btn{
@@ -406,9 +315,7 @@ color: rgb(34, 40, 49);
     overflow: auto;
     border: 3px solid rgb(101, 83, 112);
 }
-
 .save-btn{
-    
     cursor: pointer;
     outline: 0;
     color: #fff;
@@ -417,7 +324,6 @@ color: rgb(34, 40, 49);
     display: flex;
     position: relative;
     left: 45%;
-    /* right: 50%; */
     font-weight: 400;
     line-height: 1.5;
     text-align: center;
@@ -426,7 +332,6 @@ color: rgb(34, 40, 49);
     font-size: 16px;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    /* margin-left: 10px; */
     margin-bottom: 20px;
     align-items: center;
 }
@@ -441,7 +346,6 @@ color: rgb(34, 40, 49);
     position: fixed;
     left: 0;
     bottom: 0;
-    /* height: 50px; */
     width: 100%;
     text-align: center;
     align-items: center;
@@ -455,21 +359,17 @@ color: rgb(34, 40, 49);
 @media screen and (max-width: 500px) {
     #splitGroup{
         width: 80%;
-        margin-top: 100px;
+        margin-top: 90px;
     }
     #expense-to-pay{
         width: 90%;
     }
     #newGroup{
         width: 80%;
-        margin-top: 100px;
+        margin-top: 90px;
     }
-    /* .num{
-        display: inline;
-    } */
     #amount{
         width: 55%;
-        /* display: block; */
     }
     #add-payer{
         width: 60%;
@@ -477,9 +377,8 @@ color: rgb(34, 40, 49);
         margin-bottom: 10px;
     }
     #navbar{ 
-        height: 60px;
+        height: 50px;
     }
-    
     #logo{
         margin-left: 5px;
     }
